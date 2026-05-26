@@ -1,0 +1,57 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const members = await getCollection("team");
+  return members.map((member) => ({
+    params: { slug: member.id },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+const { Content } = await render(member);
+const { name, role, photo } = member.data;
+---
+
+<Base
+  title={`${name} — Global Faith Temple`}
+  description={`${name}${role ? ", " + role : ""} — a steward of Global Faith Temple.`}
+>
+  <main>
+    <header class="relative bg-ivory pb-12 pt-40 md:pb-16 md:pt-48">
+      <div class="mx-auto max-w-3xl px-6 text-center">
+        <p class="fade-up mb-6 text-xs uppercase tracking-[0.4em] text-olive opacity-80">Leadership</p>
+        {
+          photo && (
+            <img src={photo} alt={name} class="fade-up mx-auto mb-8 h-32 w-32 rounded-full object-cover" loading="lazy" />
+          )
+        }
+        <h1 class="fade-up font-serif text-4xl leading-[1.1] text-olive-deep md:text-5xl">{name}</h1>
+        {role && <p class="fade-up mt-3 text-xs uppercase tracking-[0.3em] text-olive opacity-70">{role}</p>}
+        <div class="fade-up mt-10 flex items-center justify-center gap-3 text-olive opacity-50">
+          <span class="h-px w-10" style="background: rgba(74,76,33,0.4);"></span>
+          <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1.4" fill="currentColor"></circle></svg>
+          <span class="h-px w-10" style="background: rgba(74,76,33,0.4);"></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="border-t py-16 md:py-24" style="border-color: rgba(74,76,33,0.1);">
+      <div class="mx-auto max-w-3xl px-6">
+        <article
+          class="fade-up space-y-5 text-[17px] leading-relaxed [&_h2]:mt-8 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:text-olive-deep [&_strong]:text-olive-deep"
+          style="color: rgba(43,42,29,0.82);"
+        >
+          <Content />
+        </article>
+        <div class="mt-12">
+          <a href="/leadership" class="text-xs uppercase tracking-[0.3em] text-olive transition-colors hover:text-olive-deep">
+            ← Back to leadership
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

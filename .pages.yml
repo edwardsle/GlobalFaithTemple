@@ -37,6 +37,18 @@ content:
       - { name: time, label: Time, type: string }
       - { name: body, label: Details, type: rich-text }
 
+  - name: team
+    label: Leadership Profiles
+    type: collection
+    path: src/content/team
+    filename: "{primary}.md"
+    fields:
+      - { name: name, label: Full name, type: string, required: true }
+      - { name: role, label: Role, type: string }
+      - { name: order, label: Sort order, type: number, default: 99 }
+      - { name: photo, label: Photo, type: image }
+      - { name: body, label: Biography, type: rich-text }
+
   - name: site
     label: Site settings
     type: file
