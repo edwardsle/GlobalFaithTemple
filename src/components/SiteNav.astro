@@ -1,0 +1,82 @@
+---
+interface Props {
+  transparent?: boolean;
+}
+const { transparent = false } = Astro.props;
+
+const NAV = [
+  { href: "/about", label: "About" },
+  { href: "/leadership", label: "Leadership" },
+  { href: "/programs", label: "Programs" },
+  { href: "/heritage", label: "Heritage" },
+  { href: "/engage", label: "Engage" },
+  { href: "/contact", label: "Contact" },
+];
+
+// Normalize current path (strip trailing slash) for active-link comparison.
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header
+  data-site-header
+  data-transparent={transparent ? "" : undefined}
+  class={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${transparent ? "" : "is-solid"}`}
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+    <a href="/" class="flex flex-col leading-none">
+      <span class="font-serif text-lg tracking-wide text-olive-deep">Global Faith</span>
+      <span class="font-serif text-xs italic tracking-[0.25em] uppercase text-olive/70">Temple</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex">
+      {
+        NAV.map((n) => (
+          <a href={n.href} class:list={["nav-link", { active: path === n.href }]}>
+            {n.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <button data-menu-toggle aria-label="Menu" aria-expanded="false" class="text-olive md:hidden">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 7h16"></path>
+        <path d="M4 17h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div data-mobile-menu class="hidden border-t border-border bg-ivory/95 backdrop-blur md:hidden">
+    <div class="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4">
+      {
+        NAV.map((n) => (
+          <a href={n.href} class="py-2 text-sm tracking-wide text-foreground/80">
+            {n.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</header>
+
+<script>
+  // Scroll-aware background: transparent headers turn solid once scrolled.
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  if (header) {
+    const transparentByDefault = header.hasAttribute("data-transparent");
+    const update = () => {
+      const scrolled = window.scrollY > 12;
+      header.classList.toggle("is-solid", !transparentByDefault || scrolled);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+  }
+
+  // Mobile menu toggle.
+  const btn = document.querySelector("[data-menu-toggle]");
+  const menu = document.querySelector("[data-mobile-menu]");
+  btn?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("hidden") === false;
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+</script>

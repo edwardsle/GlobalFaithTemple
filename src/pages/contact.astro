@@ -1,0 +1,149 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Contact — Global Faith Temple"
+  description="Send feedback, request support, or simply say hello. We read each message in peace, and reply in our own steady time."
+>
+  <main>
+
+    <header class="relative bg-ivory pb-16 pt-40 md:pb-24 md:pt-48">
+      <div class="mx-auto max-w-4xl px-6 text-center">
+        <p class="fade-up mb-6 text-xs uppercase tracking-[0.4em] text-olive opacity-80">Contact</p>
+        <h1 class="fade-up font-serif text-4xl leading-[1.1] text-olive-deep md:text-6xl">
+          The doors are open.<br />So are our ears.
+        </h1>
+        <p class="fade-up mx-auto mt-8 max-w-2xl text-base leading-relaxed md:text-lg" style="color: rgba(43,42,29,0.78);">
+          Share a word of feedback or quietly ask for support. We read every message — and we reply in our own steady time, as a friend would.
+        </p>
+        <div class="fade-up mt-12 flex items-center justify-center gap-3 text-olive opacity-50">
+          <span class="h-px w-10" style="background: rgba(74,76,33,0.4);"></span>
+          <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1.4" fill="currentColor" /></svg>
+          <span class="h-px w-10" style="background: rgba(74,76,33,0.4);"></span>
+        </div>
+        <nav class="fade-up mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs uppercase tracking-[0.3em] text-olive opacity-70">
+          <a href="#visit" class="hover:text-olive">Visit</a><span class="opacity-30">·</span>
+          <a href="#feedback" class="hover:text-olive">Feedback</a><span class="opacity-30">·</span>
+          <a href="#support" class="hover:text-olive">Support</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Visit -->
+    <section id="visit" class="scroll-mt-24 border-t py-20 md:py-28" style="border-color: rgba(74,76,33,0.1);">
+      <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-12">
+        <div class="reveal-left space-y-8 md:col-span-5">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-olive opacity-70">Where to find us</p>
+            <p class="mt-3 font-serif text-2xl text-olive-deep">
+              17320 N. Mesa Dr.<br />
+              Pauma Valley, CA 92061
+            </p>
+          </div>
+          <div class="hairline-divider"></div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-olive opacity-70">Sanctuary hours</p>
+            <p class="mt-3 leading-relaxed" style="color: rgba(43,42,29,0.82);">
+              Monday – Saturday · 7:00 AM – 8:00 PM<br />
+              Sunday · 7:00 AM – 9:00 PM<br />
+              <span class="italic" style="color: var(--muted-foreground);">The candle is lit each dawn, year-round.</span>
+            </p>
+          </div>
+          <div class="hairline-divider"></div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-olive opacity-70">Reach us</p>
+            <p class="mt-3 leading-relaxed" style="color: rgba(43,42,29,0.82);">
+              info@tvwam.org<br />
+              +1 (714) 277-0284
+            </p>
+          </div>
+        </div>
+        <div class="reveal-right md:col-span-7">
+          <p class="text-xs uppercase tracking-[0.3em] text-olive opacity-70">A note before you write</p>
+          <p class="mt-3 font-serif text-2xl leading-snug text-olive-deep">
+            Whatever you send — a question, a memory, a need, a name to be remembered — we hold it gently.
+          </p>
+          <p class="mt-6 text-[17px] leading-relaxed" style="color: rgba(43,42,29,0.82);">
+            We do not pass on your details. We do not measure your message by its length. You may write in any language — if we cannot read it ourselves, a friend among our partner communities will help us answer with care.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback -->
+    <section id="feedback" class="scroll-mt-24 border-t py-20 md:py-28" style="border-color: rgba(74,76,33,0.1); background-color: var(--parchment);">
+      <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-12">
+        <div class="reveal-left md:col-span-4">
+          <p class="mb-4 text-xs uppercase tracking-[0.35em] text-olive opacity-70">Feedback</p>
+          <h2 class="font-serif text-3xl leading-tight text-olive-deep md:text-4xl">Tell us what moved you, what could be kinder.</h2>
+          <p class="mt-4 text-sm" style="color: var(--muted-foreground);">Your reflections shape how we tend this place. Praise, gentle critique, or a remembrance — all are welcome here.</p>
+        </div>
+        <div class="reveal-right md:col-span-8">
+          <form data-contact-form="feedback" class="fade-up">
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label class="field-label" for="fb-name">Name</label>
+                <input id="fb-name" name="name" type="text" required class="field-input" />
+              </div>
+              <div>
+                <label class="field-label" for="fb-email">Email</label>
+                <input id="fb-email" name="email" type="email" required class="field-input" />
+              </div>
+            </div>
+            <div class="mt-6">
+              <label class="field-label" for="fb-subject">Subject</label>
+              <input id="fb-subject" name="subject" type="text" class="field-input" />
+            </div>
+            <div class="mt-6">
+              <label class="field-label" for="fb-message">Your reflection</label>
+              <textarea id="fb-message" name="message" required rows="5" class="field-input resize-none" placeholder="A word, a thought, a remembrance…"></textarea>
+            </div>
+            <button type="submit" class="btn-primary mt-8">Send with peace</button>
+            <p data-form-note="feedback" class="hidden fade-in mt-6 text-sm italic" style="color: var(--olive);">
+              Thank you. Your reflection has been received, and will be read with care.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support -->
+    <section id="support" class="scroll-mt-24 border-t py-20 md:py-28" style="border-color: rgba(74,76,33,0.1);">
+      <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-12">
+        <div class="reveal-left md:col-span-4">
+          <p class="mb-4 text-xs uppercase tracking-[0.35em] text-olive opacity-70">Support</p>
+          <h2 class="font-serif text-3xl leading-tight text-olive-deep md:text-4xl">If you need a hand, a visit, or simply someone to listen.</h2>
+          <p class="mt-4 text-sm" style="color: var(--muted-foreground);">Our Care Network responds to every request with confidentiality and warmth. There is no cost, and no record kept beyond what is needed to walk alongside you.</p>
+        </div>
+        <div class="reveal-right md:col-span-8">
+          <form data-contact-form="support" class="fade-up">
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label class="field-label" for="sp-name">Name</label>
+                <input id="sp-name" name="name" type="text" required class="field-input" />
+              </div>
+              <div>
+                <label class="field-label" for="sp-email">Email</label>
+                <input id="sp-email" name="email" type="email" required class="field-input" />
+              </div>
+            </div>
+            <div class="mt-6">
+              <label class="field-label" for="sp-subject">Subject</label>
+              <input id="sp-subject" name="subject" type="text" class="field-input" />
+            </div>
+            <div class="mt-6">
+              <label class="field-label" for="sp-message">How can we help?</label>
+              <textarea id="sp-message" name="message" required rows="5" class="field-input resize-none" placeholder="Tell us, in your own time and your own words."></textarea>
+            </div>
+            <button type="submit" class="btn-primary mt-8">Send with peace</button>
+            <p data-form-note="support" class="hidden fade-in mt-6 text-sm italic" style="color: var(--olive);">
+              Thank you. We will respond in care, and in our own steady time.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Base>

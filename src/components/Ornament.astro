@@ -1,0 +1,14 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+
+<div class={`flex items-center justify-center gap-3 text-olive/50 ${className}`}>
+  <span class="h-px w-10 bg-olive/30"></span>
+  <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+    <circle cx="5" cy="5" r="1.4" fill="currentColor"></circle>
+  </svg>
+  <span class="h-px w-10 bg-olive/30"></span>
+</div>

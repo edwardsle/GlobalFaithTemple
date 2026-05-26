@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  transparentNav?: boolean;
+}
+
+const {
+  title = "Global Faith Temple — A sanctuary of peace, remembrance, and gratitude",
+  description = "A quiet sanctuary honoring those who served in Vietnam — the Republic of Vietnam, the United States, and six allied nations — built in gratitude, kept in peace.",
+  transparentNav = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap"
+    />
+  </head>
+  <body class="bg-ivory text-foreground">
+    <SiteNav transparent={transparentNav} />
+    <slot />
+    <SiteFooter />
+  </body>
+</html>
+
+<script>
+  // Site-wide reveal-on-scroll: add `is-visible` when elements enter the viewport.
+  const els = document.querySelectorAll<HTMLElement>(
+    ".fade-up, .fade-in, .reveal-left, .reveal-right, .stagger"
+  );
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+  } else {
+    els.forEach((el) => el.classList.add("is-visible"));
+  }
+</script>

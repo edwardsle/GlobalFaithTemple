@@ -1,11 +1,362 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Base from "../layouts/Base.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<Base transparentNav={true}>
+  <main>
+    <!-- ─────────── Hero ─────────── -->
+    <section id="top" class="relative isolate min-h-screen overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/assets/hero-sanctuary.jpg"
+          alt="Soft sunlight streaming through the sanctuary"
+          class="hero-img h-full w-full object-cover"
+        />
+      </div>
+      <div
+        class="hero-overlay absolute inset-0"
+        style="background: linear-gradient(to bottom, rgba(246,241,227,0.55), rgba(246,241,227,0.35), var(--ivory));"
+      >
+      </div>
+      <div
+        class="hero-overlay absolute inset-0"
+        style="background: linear-gradient(to right, rgba(246,241,227,0.40), transparent, rgba(246,241,227,0.20));"
+      >
+      </div>
+
+      <div
+        class="relative mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 pb-24 pt-40 text-center"
+      >
+        <p data-hero style="--hero-delay: 0ms;" class="mb-8 text-xs uppercase tracking-[0.4em] text-olive opacity-80">
+          In service of peace · in memory of allies
+        </p>
+        <h1
+          data-hero
+          style="--hero-delay: 150ms;"
+          class="hero-title font-serif text-6xl leading-[1.05] text-olive-deep sm:text-6xl md:text-5xl lg:text-7xl"
+        >
+          <span class="hero-shimmer">Eight Nations,</span> <br class="block sm:block md:hidden lg:block" /><span class="hero-shimmer"
+            >One Sacred Legacy</span
+          >
+        </h1>
+        <h1
+          data-hero
+          style="--hero-delay: 350ms;"
+          class="hero-subtitle font-serif text-4xl leading-[1.05] text-olive-deep text-pretty sm:text-4xl md:text-3xl lg:text-3xl"
+        >
+          Honoring the Fallen Allies of the Vietnam War
+        </h1>
+        <p
+          data-hero
+          style="--hero-delay: 550ms;"
+          class="mt-8 max-w-xl text-base leading-relaxed text-foreground/75 text-pretty md:text-lg"
+        >
+          Global Faith Temple is a quiet sanctuary dedicated to the soldiers of the
+          eight allied nations — the Republic of Vietnam, the United States, South Korea,
+          Australia, New Zealand, Thailand, the Philippines, and the Republic of China —
+          who stood together in the Vietnam War.
+        </p>
+        <div data-hero style="--hero-delay: 750ms;" class="mt-10 flex flex-col items-center gap-4">
+          <a href="/contact" class="hero-cta btn-ghost">Plan your visit</a>
+          <a href="#about" class="hero-arrow text-xs uppercase tracking-[0.3em] text-olive opacity-70 hover:opacity-100">
+            ↓ Continue
+          </a>
+        </div>
+
+        <!-- floating candle indicator -->
+        <div class="pulse-soft absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2">
+          <span class="h-10 w-px bg-olive opacity-30"></span>
+          <span class="text-[10px] uppercase tracking-[0.4em] text-olive opacity-60">Scroll</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── A welcome ─────────── -->
+    <section id="about" class="relative bg-ivory py-28 md:py-40">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-16 md:grid-cols-12 md:gap-20">
+          <div class="md:col-span-7">
+            <p class="mb-6 text-xs uppercase tracking-[0.35em] text-olive/70">A welcome</p>
+            <h2 class="font-serif text-4xl leading-tight text-olive-deep md:text-5xl">
+              Whoever you are, whatever you carry — there is room here.
+            </h2>
+            <div class="mt-8 space-y-5 text-[17px] leading-relaxed text-foreground/80">
+              <p>
+                Our doors are open to veterans and their families, to descendants of the
+                fallen, and to all who come in remembrance. We hold space for the
+                soldiers of the eight allied nations who served in the Vietnam War, and
+                for the quiet work of carrying their memory forward.
+              </p>
+              <p>
+                There is no test to pass at our threshold. Only an invitation to sit, to
+                breathe, and to be received in peace — beside neighbors who once stood
+                beside one another.
+              </p>
+              <p class="font-serif italic text-olive">— The Stewards of Global Faith Temple</p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4">
+              <div class="border-t border-olive/20 pt-4">
+                <p class="font-serif text-lg text-olive-deep">Peace</p>
+                <p class="mt-1 text-xs leading-relaxed text-muted-foreground">Earned in sacrifice, kept in stillness</p>
+              </div>
+              <div class="border-t border-olive/20 pt-4">
+                <p class="font-serif text-lg text-olive-deep">Remembrance</p>
+                <p class="mt-1 text-xs leading-relaxed text-muted-foreground">Eight nations, one shared honor</p>
+              </div>
+              <div class="border-t border-olive/20 pt-4">
+                <p class="font-serif text-lg text-olive-deep">Service</p>
+                <p class="mt-1 text-xs leading-relaxed text-muted-foreground">For veterans and their families</p>
+              </div>
+              <div class="border-t border-olive/20 pt-4">
+                <p class="font-serif text-lg text-olive-deep">Community</p>
+                <p class="mt-1 text-xs leading-relaxed text-muted-foreground">A table with room for all</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-5">
+            <div class="relative aspect-[3/4] overflow-hidden rounded-sm">
+              <img
+                src="/assets/about-cloth.jpg"
+                alt="A folded cloth resting on weathered stone"
+                width="1080"
+                height="1440"
+                loading="lazy"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <p class="mt-4 font-serif text-xs italic tracking-wide text-muted-foreground">
+              "We hold their memory with love — eight nations, one peace."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Six pillars ─────────── -->
+    <section class="relative bg-ivory py-28 md:py-40">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="fade-up mx-auto mb-16 max-w-2xl text-center">
+          <p class="mb-4 text-xs uppercase tracking-[0.35em] text-olive opacity-70">The temple</p>
+          <h2 class="font-serif text-4xl leading-tight text-olive-deep md:text-5xl">
+            Six quiet rooms,<br />one open door.
+          </h2>
+          <div class="drift mt-8 flex items-center justify-center gap-3 text-olive opacity-50">
+            <span class="h-px w-10" style="background: rgba(74,76,33,0.4);"></span>
+            <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1.4" fill="currentColor"></circle></svg>
+            <span class="h-px w-10" style="background: rgba(74,76,33,0.4);"></span>
+          </div>
+        </div>
+
+        <div
+          class="stagger grid gap-px overflow-hidden border md:grid-cols-2 lg:grid-cols-3"
+          style="border-color: rgba(74,76,33,0.15); background-color: rgba(74,76,33,0.15);"
+        >
+          <a href="/about" class="fade-up pillar-card group flex flex-col p-10 md:p-12">
+            <p class="mb-4 text-xs uppercase tracking-[0.3em] text-olive opacity-70">— About</p>
+            <p class="font-serif text-2xl leading-snug text-olive-deep">Who we are</p>
+            <p class="mt-4 text-sm leading-relaxed" style="color: rgba(43,42,29,0.75);">
+              Our mission, vision, and the quiet convictions that shape every hour spent beneath this roof.
+            </p>
+            <span class="pillar-arrow mt-6 text-xs uppercase tracking-[0.3em] text-olive">Enter →</span>
+          </a>
+
+          <a href="/leadership" class="fade-up pillar-card group flex flex-col p-10 md:p-12">
+            <p class="mb-4 text-xs uppercase tracking-[0.3em] text-olive opacity-70">— Leadership</p>
+            <p class="font-serif text-2xl leading-snug text-olive-deep">Those who serve</p>
+            <p class="mt-4 text-sm leading-relaxed" style="color: rgba(43,42,29,0.75);">
+              The stewards, volunteers, and partner communities — across Vietnam and the allied nations — who carry this
+              work day by day.
+            </p>
+            <span class="pillar-arrow mt-6 text-xs uppercase tracking-[0.3em] text-olive">Enter →</span>
+          </a>
+
+          <a href="/programs" class="fade-up pillar-card group flex flex-col p-10 md:p-12">
+            <p class="mb-4 text-xs uppercase tracking-[0.3em] text-olive opacity-70">— Programs</p>
+            <p class="font-serif text-2xl leading-snug text-olive-deep">Work in motion</p>
+            <p class="mt-4 text-sm leading-relaxed" style="color: rgba(43,42,29,0.75);">
+              Initiatives we have completed in remembrance, programs we are tending now, and plans gently taking shape.
+            </p>
+            <span class="pillar-arrow mt-6 text-xs uppercase tracking-[0.3em] text-olive">Enter →</span>
+          </a>
+
+          <a href="/heritage" class="fade-up pillar-card group flex flex-col p-10 md:p-12">
+            <p class="mb-4 text-xs uppercase tracking-[0.3em] text-olive opacity-70">— Heritage</p>
+            <p class="font-serif text-2xl leading-snug text-olive-deep">What we carry</p>
+            <p class="mt-4 text-sm leading-relaxed" style="color: rgba(43,42,29,0.75);">
+              A history of service and sacrifice, a living culture of peace, and a legacy entrusted to those who follow
+              us.
+            </p>
+            <span class="pillar-arrow mt-6 text-xs uppercase tracking-[0.3em] text-olive">Enter →</span>
+          </a>
+
+          <a href="/engage" class="fade-up pillar-card group flex flex-col p-10 md:p-12">
+            <p class="mb-4 text-xs uppercase tracking-[0.3em] text-olive opacity-70">— Engage</p>
+            <p class="font-serif text-2xl leading-snug text-olive-deep">Walk with us</p>
+            <p class="mt-4 text-sm leading-relaxed" style="color: rgba(43,42,29,0.75);">
+              Offer your hands, your gift, or your friendship. There is room for many paths into this work.
+            </p>
+            <span class="pillar-arrow mt-6 text-xs uppercase tracking-[0.3em] text-olive">Enter →</span>
+          </a>
+
+          <a href="/contact" class="fade-up pillar-card group flex flex-col p-10 md:p-12">
+            <p class="mb-4 text-xs uppercase tracking-[0.3em] text-olive opacity-70">— Contact</p>
+            <p class="font-serif text-2xl leading-snug text-olive-deep">Speak with us</p>
+            <p class="mt-4 text-sm leading-relaxed" style="color: rgba(43,42,29,0.75);">
+              A word of feedback, a request for help, or a quiet message. We read each one with care.
+            </p>
+            <span class="pillar-arrow mt-6 text-xs uppercase tracking-[0.3em] text-olive">Enter →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Founder's note ─────────── -->
+    <section class="relative overflow-hidden py-28 md:py-36" style="background-color: var(--beige);">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="fade-up text-center">
+          <p class="mb-6 text-xs uppercase tracking-[0.4em] text-olive opacity-80">A word from the founder</p>
+          <p class="font-serif text-3xl italic leading-relaxed text-olive-deep md:text-4xl">
+            "I gave what I had — my land, my home, the small wealth gathered in one lifetime — because no monument can
+            repay a life laid down for peace. This temple is not a gift. It is a thanksgiving."
+          </p>
+        </div>
+
+        <div class="reveal-left mt-12 grid items-center gap-10 md:grid-cols-12">
+          <div class="space-y-5 text-[17px] leading-relaxed md:col-span-7" style="color: rgba(43,42,29,0.82);">
+            <p>
+              The founder of Global Faith Temple was once a young man in a country at war. He knew the names of those
+              who fell on his behalf — and the names of allies, far from their own soil, who fell beside them. For
+              decades after, he carried a single quiet promise.
+            </p>
+            <p>
+              When the time came, he made it real. He set aside every asset he owned, sold the land that had been his
+              family's, and turned the whole of his life's work into this temple — a place where the soldiers of eight
+              nations could be honored together, and where any soul might find a moment of stillness.
+            </p>
+            <p>
+              He asks for no recognition. Only that the doors stay open, the candle stay lit, and the names not be
+              forgotten.
+            </p>
+          </div>
+          <div class="reveal-right md:col-span-5">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-sm">
+              <img
+                src="/assets/stone.jpg"
+                alt="Folded ceremonial cloth resting on a wooden table"
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(53,54,23,0.35), transparent 60%);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Remembrance ─────────── -->
+    <section class="relative overflow-hidden bg-olive-deep text-ivory">
+      <div class="grid gap-0 md:grid-cols-2">
+        <div class="relative min-h-[60vh] md:min-h-[80vh]">
+          <img
+            src="/assets/remembrance-candle.jpg"
+            alt="A single lit candle beside an olive branch on weathered stone"
+            class="candle-flicker absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0" style="background: linear-gradient(to right, transparent, transparent, var(--olive-deep));"></div>
+        </div>
+        <div class="flex items-center px-6 py-24 md:px-16 md:py-40">
+          <div class="fade-up max-w-lg">
+            <p class="mb-6 text-xs uppercase tracking-[0.4em] text-candle opacity-90">In remembrance</p>
+            <h2 class="font-serif text-4xl leading-tight text-ivory md:text-5xl">
+              For those who answered the call —<br />
+              <em class="flame-sway inline-block not-italic text-candle">we keep the light.</em>
+            </h2>
+            <p class="mt-8 text-[17px] leading-relaxed" style="color: rgba(246,241,227,0.85);">
+              Eight candles burn each day in our sanctuary — one for each allied nation
+              whose soldiers gave themselves in the Vietnam War. Their courage shapes our
+              peace. Their absence shapes our gratitude.
+            </p>
+            <a
+              href="/heritage"
+              class="mt-10 inline-flex items-center gap-3 border-b pb-1 text-xs uppercase tracking-[0.3em] text-candle transition-colors hover:text-ivory"
+              style="border-color: rgba(216,168,91,0.6);"
+            >
+              Our heritage →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Closing invitation ─────────── -->
+    <section class="relative bg-parchment py-28 md:py-36">
+      <div class="mx-auto max-w-3xl px-6 text-center">
+        <div class="fade-up mb-10 flex items-center justify-center gap-3 text-olive opacity-50">
+          <span class="h-px w-10" style="background: rgba(74,76,33,0.4);"></span>
+          <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="1.4" fill="currentColor"></circle></svg>
+          <span class="h-px w-10" style="background: rgba(74,76,33,0.4);"></span>
+        </div>
+        <p class="fade-up font-serif text-3xl italic leading-relaxed text-olive-deep md:text-4xl">
+          "Peace I leave with you; my peace I give to you."
+        </p>
+        <div class="fade-up mt-12 flex flex-wrap items-center justify-center gap-4">
+          <a href="/engage" class="btn-primary">Walk with us</a>
+          <a href="/contact" class="btn-ghost">Visit the temple</a>
+        </div>
+        <div class="fade-up mt-16 grid items-center gap-8 md:grid-cols-2">
+          <img
+            src="/assets/community-hands.jpg"
+            alt="Hands clasped together in quiet solidarity"
+            class="aspect-[16/10] w-full rounded-sm object-cover"
+            loading="lazy"
+          />
+          <p class="text-left font-serif text-2xl leading-relaxed text-olive-deep">
+            "Be kind, for everyone you meet is carrying something the eye cannot see."
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<script>
+  // Hero entrance reveals on load — each [data-hero] honors its own --hero-delay.
+  (function () {
+    const run = () =>
+      requestAnimationFrame(() =>
+        document.querySelectorAll("[data-hero]").forEach((el) => el.classList.add("is-visible"))
+      );
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+    else run();
+  })();
+
+  // "↓ Continue" auto-scroll: click to descend slowly; click anywhere to stop.
+  (function () {
+    const trigger = document.querySelector<HTMLElement>(".hero-arrow");
+    if (!trigger) return;
+    let rafId: number | null = null;
+    const SPEED = 8; // pixels per frame
+
+    function step() {
+      const maxY = document.documentElement.scrollHeight - window.innerHeight;
+      if (window.scrollY >= maxY - 1) return stop();
+      window.scrollBy(0, SPEED);
+      rafId = requestAnimationFrame(step);
+    }
+    function stop() {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(step);
+      setTimeout(() => document.addEventListener("click", stop, { once: true }), 0);
+    });
+  })();
+</script>

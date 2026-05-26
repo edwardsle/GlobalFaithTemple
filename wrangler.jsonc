@@ -1,0 +1,11 @@
+{
+  // Cloudflare config for deploying the Astro static build as a Worker
+  // with static assets. Deploy command: `npx wrangler deploy`
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "global-faith-temple",
+  "compatibility_date": "2026-05-26",
+  // The folder `astro build` outputs to. Wrangler serves these as static assets.
+  "assets": {
+    "directory": "./dist"
+  }
+}

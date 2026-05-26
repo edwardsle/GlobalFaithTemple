@@ -1,0 +1,36 @@
+---
+const NAV = [
+  { href: "/about", label: "About" },
+  { href: "/leadership", label: "Leadership" },
+  { href: "/programs", label: "Programs" },
+  { href: "/heritage", label: "Heritage" },
+  { href: "/engage", label: "Engage" },
+  { href: "/contact", label: "Contact" },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-olive-deep text-ivory/80">
+  <div class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-10 md:grid-cols-3">
+      <div>
+        <p class="font-serif text-2xl text-ivory">Global Faith Temple</p>
+        <p class="mt-2 font-serif text-xs italic uppercase tracking-[0.25em] text-candle/80">
+          In peace · in remembrance
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-x-8 gap-y-3 text-sm md:justify-center">
+        {NAV.map((n) => <a href={n.href} class="text-ivory/70 hover:text-candle">{n.label}</a>)}
+      </div>
+      <p class="font-serif italic leading-relaxed text-ivory/70 md:text-right">
+        "May the road rise up to meet you, and may peace dwell within your house."
+      </p>
+    </div>
+    <div
+      class="mt-12 flex flex-col items-center justify-between gap-3 border-t border-ivory/10 pt-6 text-xs text-ivory/50 md:flex-row"
+    >
+      <span>© {year} Global Faith Temple. All rights reserved.</span>
+      <span class="uppercase tracking-[0.2em]">Held in gratitude</span>
+    </div>
+  </div>
+</footer>
